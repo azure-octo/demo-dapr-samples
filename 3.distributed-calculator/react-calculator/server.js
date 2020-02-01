@@ -34,6 +34,14 @@ app.post('/calculate/divide', async (req, res) => {
   req.pipe(request(divideUrl)).pipe(res);
 });
 
+app.post('/calculate/modulo', async (req, res) => {
+  const operandOne = req.headers['operandone'];
+  const operandTwo = req.headers['operandtwo'];
+  console.log(req.headers);
+  const moduloUrl = `${daprUrl}/moduloapp/method/modulo?operandOne=${operandOne}&operandTwo=${operandTwo}`;
+  req.pipe(request(moduloUrl)).pipe(res);
+});
+
 // Forward state retrieval to Dapr state endpoint
 app.get('/state', async (req, res) => req.pipe(request(`${stateUrl}/calculatorState`)).pipe(res));
 

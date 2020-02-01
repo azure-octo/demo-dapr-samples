@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
       - name: calculator-front-end
-        image: dapriosamples/distributed-calculator-react-calculator
+        image: ready2020.azurecr.io/distributed-calculator-react-calculator
         ports:
         - containerPort: 8080
         imagePullPolicy: Always

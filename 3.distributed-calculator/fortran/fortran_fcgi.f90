@@ -55,8 +55,6 @@ contains
 
         logical                           :: okInputs
 
-        write(unitNo, AFORMAT) '%REMARK% respond() started ...'
-
         ! retrieve script name (key=DOCUMENT_URI) from dictionary
         call cgi_get( dict, "DOCUMENT_URI", scriptName )
 
@@ -72,15 +70,12 @@ contains
             read(operandTwo,*,iostat=stat) numTwo
 
             write(result, '(i10)') modulo(numOne,numTwo)
-            write(unitNo,AFORMAT) result
+            write(unitNo,AFORMAT) trim(result)
 
           case DEFAULT
             write(unitNo,AFORMAT) 'Page not found!'
 
         end select
-
-        ! end of response
-        write(unitNo,AFORMAT) '%REMARK% respond() completed ...'
 
         return
 

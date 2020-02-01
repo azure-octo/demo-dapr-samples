@@ -50,6 +50,7 @@ export default async function calculate(obj, buttonName) {
     };
   }
 
+  /*
   if (buttonName === "%") {
     if (obj.operation && obj.next) {
       let result = await operate(obj.total, obj.next, obj.operation);
@@ -70,6 +71,7 @@ export default async function calculate(obj, buttonName) {
     }
     return {};
   }
+  */
 
   if (buttonName === ".") {
     if (obj.next) {

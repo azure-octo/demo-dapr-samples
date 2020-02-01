@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: moduloapp
+  labels:
+    app: modulo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: modulo
+  template:
+    metadata:
+      labels:
+        app: modulo
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/id: "moduloapp"
+        dapr.io/port: "80"
+    spec:
+      containers:
+      - name: modulo
+        image: ready2020.azurecr.io/distributed-calculator-modulo
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always

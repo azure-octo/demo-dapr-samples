@@ -2,7 +2,8 @@ const operationMap = {
   "+": "add",
   "-": "subtract",
   "x": "multiply",
-  "÷": "divide"
+  "÷": "divide",
+  "%": "modulo"
 };
 
 export default async function operate(operandOne, operandTwo, operationSymbol) {
@@ -18,6 +19,8 @@ export default async function operate(operandOne, operandTwo, operationSymbol) {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
+      'operandOne':operandOne,
+      'operandTwo':operandTwo
     },
     body: JSON.stringify({
       operandOne,
@@ -26,5 +29,5 @@ export default async function operate(operandOne, operandTwo, operationSymbol) {
   });
   const response = await rawResponse.json();
 
-  return response.toString();
+  return response.toString().replace(/\s/g, "");
 }

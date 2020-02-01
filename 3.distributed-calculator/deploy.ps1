@@ -12,3 +12,5 @@ Write-Host "---------------DEPLOYING PYTHON MULTIPLIER---------------" -Foregrou
 kubectl apply -f .\deploy\python-multiplier.yaml
 Write-Host "---------------DEPLOYING NODE DIVIDER--------------------" -ForegroundColor Black -BackgroundColor White
 kubectl apply -f .\deploy\node-divider.yaml
+Write-Host "---------------DEPLOYING FORTRAN MODULO--------------------" -ForegroundColor Black -BackgroundColor Green
+kubectl apply -f .\deploy\fortran-modulo.yaml
